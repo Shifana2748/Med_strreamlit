@@ -5,10 +5,15 @@ from tensorflow.keras.models import load_model
 
 st.title('MEDICAL INSURANCE')
 
-model = load_model('med_ins_ann.h5', compile = False)
+model = load_model('med_ins_ann.keras')
 model.compile(optimizer='adam',
               loss = 'mean_squared_error',
               metrics=['mean_squared_error'])
+
+import tensorflow as tf
+
+model = tf.keras.models.load_model("med_ins_ann.h5")
+
 
 age = st.number_input('Age')  #18 - 64
 gender = st.selectbox('Gender',['Male','Female'])
